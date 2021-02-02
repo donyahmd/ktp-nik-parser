@@ -17,7 +17,7 @@ class NikParser
      * @param integer $nik
      * @return array
      */
-    public function format(string $nik)
+    public function parse(string $nik)
     {
         try {
             return $this->explodeNik($nik);
