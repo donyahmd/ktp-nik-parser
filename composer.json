@@ -1,0 +1,16 @@
+{
+    "name": "donyahmd/ktp-nik-parser",
+    "description": "Check National Identity Number to Identity gender, birth of date, and region in Indonesia",
+    "authors": [
+        {
+            "name": "Doni Ahmad",
+            "email": "donyahmd24@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Donyahmd\\KtpNikParser\\": "src/"
+        }
+    }
+}
