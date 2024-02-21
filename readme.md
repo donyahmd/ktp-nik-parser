@@ -49,6 +49,7 @@ Date  | Log
 ------------- | -------------
 February 2, 2021  | First Commit.
 February 2, 2021  | Adding some district (Kab.Malinau, Kab. Kutai Barat, Kab. Kutai Timur, Kab. Penajam Paser Utara) in Kalimantan Timur.
+February 21, 2024  | Refactor code (will be updated in future).
 
 ## Support
 
