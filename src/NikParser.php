@@ -14,8 +14,8 @@ class NikParser
      * Jika sesuai nanti hasilnya akan menampilkan data wilayah, tanggal lahir, dan
      * gender dari yang punya KTP.
      *
-     * @param integer $nik
-     * @return array
+     * @param string $nik
+     * @return array|string
      */
     public function parse(string $nik)
     {
@@ -55,7 +55,7 @@ class NikParser
             'gender' => $gender,
         ];
 
-        return (array) $result;
+        return $result;
     }
 
     private function getProvinceCode(string $nik)
@@ -73,19 +73,14 @@ class NikParser
         return substr($nik, 4, 2);
     }
 
-    private function isFemale($date)
-    {
-        if ($date >= 40)
-            return true;
-        else
-            return false;
-    }
-
     private function getDateOfBirth(string $nik)
     {
         $date = substr($nik, 6, 2);
 
-        $this->isFemale($date) ? $date = $date - 40 : $date;
+        // Adjust the date for females
+        if ($this->isFemale($date)) {
+            $date = $date - 40;
+        }
 
         $month = substr($nik, 8, 2);
         $year = substr($nik, 10, 2);
@@ -93,6 +88,11 @@ class NikParser
         $date_parse = date_create($year . '-' . $month . '-' . $date);
 
         return date_format($date_parse, 'd-m-Y');
+    }
+
+    private function isFemale($date)
+    {
+        return $date >= 40;
     }
 
     private function getGender(string $nik)
