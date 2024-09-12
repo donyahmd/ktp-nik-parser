@@ -1,6 +1,7 @@
 {
     "name": "donyahmd/ktp-parser",
     "description": "Check National Identity Number to Identity gender, birth of date, and region in Indonesia",
+    "license": "MIT",
     "authors": [
         {
             "name": "Doni Ahmad",
