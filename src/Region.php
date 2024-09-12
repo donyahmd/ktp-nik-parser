@@ -1,6 +1,6 @@
 <?php
 
-namespace Donyahmd\KtpNikParser;
+namespace Donyahmd\Ktp;
 
 trait Region
 {

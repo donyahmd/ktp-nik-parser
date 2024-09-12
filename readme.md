@@ -5,7 +5,7 @@ Check National Identity Number to Identity gender, birth of date, and region in 
 ## Installation
 
 ```bash
-composer require donyahmd/ktp-nik-parser
+composer require donyahmd/ktp-parser
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ composer require donyahmd/ktp-nik-parser
 ```php
 <?php
 
-use Donyahmd\KtpNikParser\NikParser;
+use Donyahmd\Ktp\NikParser;
 
 $nik = '6408132511960005';
 $nikParser= new NikParser();
