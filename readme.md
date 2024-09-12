@@ -23,23 +23,23 @@ return $nikParser->parse($nik);
 
 it will return an array:
 
-```code
+```json
 {
 "nik": "6408132511960005",
 "province": {
     "code": "64",
-    "name": "Kalimantan Timur"
+    "name": "KALIMANTAN TIMUR"
 },
 "city": {
-    "code": "08",
-    "name": "Kabupaten Kutai Timur"
+    "code": "6408",
+    "name": "KAB. KUTAI TIMUR"
 },
 "district": {
-    "code": "13",
-    "name": "Teluk Pandan"
+    "code": "640813",
+    "name": "TELUK PANDAN"
 },
 "date_of_birth": "25-11-1996",
-"gender": "Male"
+"gender": 1 // 0 for female and 1 for male 
 }
 ```
 
@@ -50,7 +50,8 @@ Date  | Log
 February 2, 2021  | First Commit.
 February 2, 2021  | Adding some district (Kab.Malinau, Kab. Kutai Barat, Kab. Kutai Timur, Kab. Penajam Paser Utara) in Kalimantan Timur.
 February 21, 2024  | Refactor code (will be updated in future).
+September 12, 2024  | Using CSV data for reading regencies.
 
 ## Support
 
-Contact me at [donyahmd24@gmail.com](mailto:donyahmd24@gmail.com "donyahmd24@gmail.com").
+Contact me at [hi@doniahmad.com](mailto:hi@doniahmad.com "hi@doniahmad.com").
