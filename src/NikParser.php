@@ -6,8 +6,8 @@ class NikParser
 {
     use Region;
 
-    const MALE = 'Male';
-    const FEMALE = 'Female';
+    public const MALE = 1;
+    public const FEMALE = 0;
 
     /**
      * Format NIK KTP Untuk mengetahui format yang ada pada nik sesuai atau tidak.
@@ -26,54 +26,52 @@ class NikParser
         }
     }
 
-    private function explodeNik(string $nik)
+    public function explodeNik(string $nik)
     {
         $provinceCode = $this->getProvinceCode($nik);
-        $cityCode = $this->getCityCode($nik);
+        $regencyCode = $this->getRegencyCode($nik);
         $districtCode = $this->getDistrictCode($nik);
 
-        $regionName = $this->getRegionName($provinceCode, $cityCode, $districtCode);
+        $regionName = $this->getRegionName($provinceCode, $regencyCode, $districtCode);
 
         $dateOfBirth = $this->getDateOfBirth($nik);
         $gender = $this->getGender($nik);
 
-        $result = [
+        return [
             'nik' => $nik,
             'province' => [
                 'code' => $provinceCode,
-                'name' => $regionName['province_name']
+                'name' => strtoupper($regionName['province_name'])
             ],
-            'city' => [
-                'code' => $cityCode,
-                'name' => $regionName['city_name']
+            'regency' => [
+                'code' => $regencyCode,
+                'name' => strtoupper($regionName['regency_name'])
             ],
             'district' => [
                 'code' => $districtCode,
-                'name' => $regionName['district_name']
+                'name' => strtoupper($regionName['district_name'])
             ],
             'date_of_birth' => $dateOfBirth,
             'gender' => $gender,
         ];
-
-        return $result;
     }
 
-    private function getProvinceCode(string $nik)
+    public function getProvinceCode(string $nik)
     {
         return substr($nik, 0, 2);
     }
 
-    private function getCityCode(string $nik)
+    public function getRegencyCode(string $nik)
     {
-        return substr($nik, 2, 2);
+        return substr($nik, 0, 4);
     }
 
-    private function getDistrictCode(string $nik)
+    public function getDistrictCode(string $nik)
     {
-        return substr($nik, 4, 2);
+        return substr($nik, 0, 6);
     }
 
-    private function getDateOfBirth(string $nik)
+    public function getDateOfBirth(string $nik)
     {
         $date = substr($nik, 6, 2);
 
@@ -90,12 +88,12 @@ class NikParser
         return date_format($date_parse, 'd-m-Y');
     }
 
-    private function isFemale($date)
+    public function isFemale($date)
     {
         return $date >= 40;
     }
 
-    private function getGender(string $nik)
+    public function getGender(string $nik)
     {
         $date = (int) substr($nik, 6, 2);
 
