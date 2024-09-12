@@ -12,5 +12,7 @@
         "psr-4": {
             "Donyahmd\\Ktp\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
